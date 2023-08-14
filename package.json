@@ -9,6 +9,6 @@
     "start": "NODE_ENV=production nodemon server/server.js",
     "dev": "concurrently \"nodemon server/server.js\" \"NODE_ENV=development webpack serve --open\""
   },
-  "author": "Alanna Herlands, Eivind Del Fierro, Eric Dalio, Eric Rennie, Simran Kaur",
+  "author": "Alana Herlands, Eivind Del Fierro, Eric Dalio, Eric Rennie, Simran Kaur",
   "license": "ISC"
 }
