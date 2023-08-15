@@ -10,7 +10,7 @@ app.use(express.json());
 
 // Have a production route:
 if (process.env.NODE_ENV === 'development') { // switch NODE_ENV to 'production when finishing
-  // app.use('/dist', express.static(path.resolve(__dirname, '../dist'))); // directory to store our static files, if we have any. Can delete if we have no static files to serve
+  // app.use('/dist', express.static(path.resolve(__dirname, '../src'))); // directory to store our static files, if we have any. Can delete if we have no static files to serve
   app.get('/', (req, res) => {
     return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'))
   });
