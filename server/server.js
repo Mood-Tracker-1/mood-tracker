@@ -29,14 +29,14 @@ app.use( (err, res) => {
   const defaultError = {
     log: 'Unknown Error caught in global error handler',
     status: 400,
-    message: {err: err}
+    message: {err: err.message}
   };
   const errorObj = {
     ...defaultError, ...err
   }
   // display the current error
   console.log(errorObj.log, "status:", errorObj.status, "Error:", "error")
-  return res.status(errorObj.status).send("errorObj.message.err");
+  return res.status(errorObj.status).send(errorObj.message.err);
 })
 
 // Have an event listener
