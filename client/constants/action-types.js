@@ -1,0 +1,12 @@
+//export const ACTION_DESCRIPTION = "ACTION_DESCRIPTION";
+
+// export const USER_LOGIN = 'USER_LOGIN';
+export const ADD_CARD = 'ADD_CARD';
+export const DELETE_CARD = 'DELETE_CARD';
+export const UPDATE_SLEEP = 'UPDATE_SLEEP';
+export const UPDATE_EXERCISE = 'UPDATE_EXERCISE';
+export const UPDATE_FOOD = 'UPDATE_FOOD';
+export const UPDATE_SOCIAL = 'UPDATE_SOCIAL';
+export const UPDATE_PRODUCTIVITY = 'UPDATE_PRODUCTIVITY';
+
+//export const ADD_USER = 'ADD_USER;

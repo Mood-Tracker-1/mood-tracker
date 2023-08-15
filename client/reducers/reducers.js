@@ -5,13 +5,113 @@ import dropdownReducer from './dropdownReducer.js';
 // import action types
 import * as types from './actions/actions.js';
 
+const initialState = {
+    //user: null,
+    totalCards: 0,
+    cardsList: [],
+    lastCardId: 1,
+    newSleep: null,
+    newExercise: null,
+    newFood: null,
+    newSocial: null,
+    newProductivity: null
+}
+
+const cardsReducer = (state = initialState, action) => {
+    let cardsList;
+    
+    switch (action.type) {
+      case types.ADD_CARD: {
+          //increment ....
+          const newTotalCards = state.totalCards + 1;
+          const newCardId = state.lastCardId + 1;
+          // create new card
+          const newCard = {
+            ...state,
+            totalCards: newTotalCards,
+            cardId: newCardId,
+            newSleep: action.payload,
+            newExercise: action.payload,
+            newFood: action.payload,
+            newSocial: action.payload,
+            newProductivity: action.payload
+        };
+
+        cardsList = state.cardsList.slice();
+        cardsList.push(newCard);
+
+        return {
+            ...state,
+            cardsList,
+            lastCardId,
+            totalCards
+        };
+    // user reducer - use later with auth stuff
+    // switch (action.type) {
+    //   case types.USER_LOGIN:
+    //      return {
+    //          ...state,
+    //          user: action.payload,
+    //         };
+    //       default:
+    //         return state;
+    //     }
+
+      }
+      
+      case types.DELETE_CARD: {
+        const newTotalCards = state.totalCards--;
+
+        return {
+            ...state,
+            newTotalCards
+        };
+      }
+
+      case types.UPDATE_SLEEP: {
+        return {
+            ...state,
+            newSleep: action.payload
+        }
+      };
+      case types.UPDATE_EXERCISE: {
+        return {
+            ...state,
+            newExercise: actions.payload
+        }
+      };
+      case types.UPDATE_SOCIAL: {
+        return {
+            ...state,
+            newSocial: actions.payload
+        }
+      };
+      case types.UPDATE_FOOD: {
+        return {
+            ...state,
+            newExercise: actions.payload
+        }
+      };
+
+      case types.UPDATE_PRODUCTIVITY: {
+        return {
+            ...state,
+            newProductivity: action.payload
+        }
+      };
 
 
-const rootReducer = combineReducers({
- cards: cardsReducer,
- dropdown: dropdownReducer
-});
+      default: {
+        return state;
+      }
+    };
+  };
 
 
+// const rootReducer = combineReducers({
+//  cards: cardsReducer,
+//  dropdown: dropdownReducer
+// });
 
-export default rootReducer;
+
+export default cardsReducer;
