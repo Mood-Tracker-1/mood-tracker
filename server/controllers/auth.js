@@ -4,11 +4,11 @@ const auth = {};
 
 auth.verifySignUp = (req, res, next) => {
     //values is like a variables array
-    //first element should be a hashed user or something
-    //second element and third element may be in req.body
+    //first element and second element may be in req.body
+    //note that you may want to hash password before storing in DB
     const values = []
-    const verifySignUpQuery = `INSERT INTO Users (UserID, Username, Password)
-    VALUES ($1, $2, $3)`
+    const verifySignUpQuery = `INSERT INTO Users (Username, Password)
+    VALUES ($1, $2)`
     db.query(verifySignUpQuery)
         .then(data =>{
             console.log('auth line 14 verify signup data rows:', data.rows)
