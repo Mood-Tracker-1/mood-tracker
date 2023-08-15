@@ -1,11 +1,11 @@
 import React from 'react';
-import Feed from './components/Homepage.jsx';
+import Homepage from './components/Homepage.jsx';
 //import { createRoot } from 'react-dom/client';
 
 const App = () => {
   return(
     <div>
-      <Feed/>
+      <Homepage/>
     </div>
   );
 };

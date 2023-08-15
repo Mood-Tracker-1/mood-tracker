@@ -1,7 +1,7 @@
 import React from 'react';
 import Prompt from './Prompt.jsx';
 
-const Feed = () => {
+const Homepage = () => {
 
     return(
         <div className='main-container'>
@@ -18,4 +18,4 @@ const Feed = () => {
     );
 };
 
-export default Feed;
+export default Homepage;
