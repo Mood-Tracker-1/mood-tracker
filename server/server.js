@@ -17,13 +17,24 @@ if (process.env.NODE_ENV === 'development') { // switch NODE_ENV to 'production 
 } 
 
 // create route handlers here
+
 app.post('/signup', auth.verifySignUp, (req,res)=>{
   return res.sendStatus(200)
+  //should we be redirecting?
 })
 
 app.post('/login', auth.verifyLogin, (req,res)=>{
   return res.sendStatus(200);
+  //should we be redirecting?
 })
+
+// get request for entries specific to whoever is logged in
+// end point would be '/entries'
+app.get('/entries', (req, res) => {
+  return res.sendStatus(200);
+});
+
+//post request for new entries 
 
 // create catch-all route handler
 app.use((req, res) => {
