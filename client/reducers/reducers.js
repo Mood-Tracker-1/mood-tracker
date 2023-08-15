@@ -1,9 +1,8 @@
 // src/reducers/index.js
-import { combineReducers } from 'redux';
-import cardsReducer from './cardsReducer.js';
-import dropdownReducer from './dropdownReducer.js';
+//import { combineReducers } from 'redux';
+//import cardsReducer from './cardsReducer.js';
 // import action types
-import * as types from './actions/actions.js';
+import * as types from '../actions/actions.js';
 
 const initialState = {
     //user: null,
@@ -21,7 +20,7 @@ const cardsReducer = (state = initialState, action) => {
     let cardsList;
     
     switch (action.type) {
-      case types.ADD_CARD: {
+      case 'ADD_CARD': {
           //increment ....
           const newTotalCards = state.totalCards + 1;
           const newCardId = state.lastCardId + 1;
@@ -59,7 +58,7 @@ const cardsReducer = (state = initialState, action) => {
 
       }
       
-      case types.DELETE_CARD: {
+      case 'DELETE_CARD': {
         const newTotalCards = state.totalCards--;
 
         return {
@@ -68,32 +67,32 @@ const cardsReducer = (state = initialState, action) => {
         };
       }
 
-      case types.UPDATE_SLEEP: {
+      case 'UPDATE_SLEEP': {
         return {
             ...state,
             newSleep: action.payload
         }
       };
-      case types.UPDATE_EXERCISE: {
+      case 'UPDATE_EXERCISE': {
         return {
             ...state,
             newExercise: actions.payload
         }
       };
-      case types.UPDATE_SOCIAL: {
+      case 'UPDATE_SOCIAL': {
         return {
             ...state,
             newSocial: actions.payload
         }
       };
-      case types.UPDATE_FOOD: {
+      case 'UPDATE_FOOD': {
         return {
             ...state,
             newExercise: actions.payload
         }
       };
 
-      case types.UPDATE_PRODUCTIVITY: {
+      case 'UPDATE_PRODUCTIVITY': {
         return {
             ...state,
             newProductivity: action.payload
