@@ -1,16 +1,10 @@
-// src/index.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from './reducers';
-import App from './App';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { legacy_createStore as createStore } from 'redux';
+import reducers from './reducers/reducers.js';
 
-const store = createStore(rootReducer);
-
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
+const store = createStore(
+  reducers,
+  composeWithDevTools()
 );
+
+export default store;

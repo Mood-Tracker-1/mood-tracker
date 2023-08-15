@@ -2,10 +2,11 @@ const path = require('path');
 //we require html plugin so we can add html to app (mpn install it first tho)
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
     //entry is where webpack starts to build dependency graph
     entry: {
-      index: path.resolve(__dirname, './src/index.js'),
+      index: path.resolve(__dirname, './client/index.js'),
     },
     //output is where Webpack saves our bundle
     output: {
@@ -15,7 +16,7 @@ module.exports = {
 
     plugins : [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "./src/index.html")
+            template: path.resolve(__dirname, "./client/index.html")
         })
     ],
 
@@ -46,8 +47,12 @@ module.exports = {
     },
     
     devServer: {
+      host: 'localhost',
+      port: '8080',
       static: {
-        publicPath: 'http://localhost:3000',
+        directory: path.resolve(__dirname, 'build'),
+        //publicPath: 'http://localhost:3000',
+        publicPath: '/',
       },
     }
 }
