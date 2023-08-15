@@ -17,7 +17,13 @@ if (process.env.NODE_ENV === 'development') { // switch NODE_ENV to 'production 
 } 
 
 // create route handlers here
+app.post('/signup', auth.verifySignUp, (req,res)=>{
+  return res.sendStatus(200)
+})
 
+app.post('/login', auth.verifyLogin, (req,res)=>{
+  return res.sendStatus(200);
+})
 
 // create catch-all route handler
 app.use((req, res) => {
