@@ -10,5 +10,11 @@
     "dev": "concurrently \"nodemon server/server.js\" \"NODE_ENV=development webpack serve --open\""
   },
   "author": "Alana Herlands, Eivind Del Fierro, Eric Dalio, Eric Rennie, Simran Kaur",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.2",
+    "redux": "^4.2.1"
+  }
 }
