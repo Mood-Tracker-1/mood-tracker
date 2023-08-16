@@ -13,15 +13,12 @@ module.exports = {
         path: path.resolve(__dirname, './build'),
         filename: '[name].bundle.js', //[name] grabs from the entry obj
     },
-
     plugins : [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "./client/index.html")
         })
     ],
-
     mode: process.env.NODE_ENV,
-
     module: {
       rules: [
       {
@@ -45,7 +42,6 @@ module.exports = {
       }
     ],
     },
-    
     devServer: {
       host: 'localhost',
       port: '8080',
