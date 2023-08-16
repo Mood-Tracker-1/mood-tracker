@@ -1,6 +1,8 @@
 const path = require('path');
 //we require html plugin so we can add html to app (mpn install it first tho)
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+
 module.exports = {
     //entry is where webpack starts to build dependency graph
     entry: {
