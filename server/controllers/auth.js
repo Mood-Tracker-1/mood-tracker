@@ -24,7 +24,7 @@ auth.verifySignUp = (req, res, next) => {
 
 auth.verifyLogin = (req,res,next) => {
     //search for a record in the users db with the given username and pw
-    const verifyLoginQuery = `SELECT * FROM users WHERE username = ${req.query.username} AND password = ${req.query.username}`;
+    const verifyLoginQuery = `SELECT * FROM users WHERE username = ${req.body.username} AND password = ${req.body.username}`;
     db.query(verifyLoginQuery)
         .then(data =>{
             console.log('auth line 30 verify login data.rows', data.rows)
