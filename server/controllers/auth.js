@@ -9,7 +9,7 @@ auth.verifySignUp = (req, res, next) => {
     const values = [req.body.username, req.body.password];
     const verifySignUpQuery = `INSERT INTO users (username, password)
     VALUES ($1, $2)`
-    db.query(verifySignUpQuery)
+    db.query(verifySignUpQuery, values)
         .then(data =>{
             console.log('auth line 14 verify signup data rows:', data.rows)
             //do we want to send anything back besides a status 200?
