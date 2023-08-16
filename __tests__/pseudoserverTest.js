@@ -15,7 +15,7 @@ describe('Testing pseudoserver endpoints', () => {
   }
   
   // parses request body
-  it('Server parses requestbody', () => {
+  it('Server parses request.body', () => {
     return request(app)
       .get('/parseRequestBody')
       .send(mockReq)
@@ -24,7 +24,6 @@ describe('Testing pseudoserver endpoints', () => {
         expect(res.statusCode).toEqual(200)
       })
   })
-
 
   // unknown page request should render 404
   it('Renders a 404 when there is an unknown endpoint', () => {
@@ -37,6 +36,7 @@ describe('Testing pseudoserver endpoints', () => {
 
   // throws default error
   describe('Request to check for error object', () => {
+    // sends a status of 400
     it('Receives a status code of 400', () => {
       return request(app)
         .get('/error')
@@ -50,7 +50,6 @@ describe('Testing pseudoserver endpoints', () => {
         .get('/error')
         .expect('Content-Type', 'text/html; charset=utf-8')
         .then(res => {
-          console.log(res)
           expect(res.body).toBe('error')
         })
     })

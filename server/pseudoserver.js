@@ -17,7 +17,7 @@ app.use('/parseRequestBody', (req, res) => {
 app.use('/error', (req, res, next) => { // mock for sending errorObjects
   return next({
     status: 400,
-    message: 'An error object message'
+    message: 'error'
   });
 })
 
