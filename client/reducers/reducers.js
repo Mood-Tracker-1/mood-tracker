@@ -1,7 +1,3 @@
-// src/reducers/index.js
-//import { combineReducers } from 'redux';
-//import cardsReducer from './cardsReducer.js';
-// import action types
 import * as types from '../actions/actions.js';
 
 const initialState = {
@@ -9,11 +5,12 @@ const initialState = {
     totalCards: 0,
     cardsList: [],
     lastCardId: 1,
-    newSleep: null,
-    newExercise: null,
-    newFood: null,
-    newSocial: null,
-    newProductivity: null
+    newMood: 'okay',
+    newSleep: 'okay',
+    newExercise: 'okay',
+    newFood: 'okay',
+    newSocial: 'okay',
+    newProductivity: 'okay'
 }
 
 const cardsReducer = (state = initialState, action) => {
@@ -29,11 +26,6 @@ const cardsReducer = (state = initialState, action) => {
             ...state,
             totalCards: newTotalCards,
             cardId: newCardId,
-            newSleep: action.payload,
-            newExercise: action.payload,
-            newFood: action.payload,
-            newSocial: action.payload,
-            newProductivity: action.payload
         };
 
         cardsList = state.cardsList.slice();
@@ -45,72 +37,72 @@ const cardsReducer = (state = initialState, action) => {
             lastCardId,
             totalCards
         };
-    // user reducer - use later with auth stuff
-    // switch (action.type) {
-    //   case types.USER_LOGIN:
-    //      return {
-    //          ...state,
-    //          user: action.payload,
-    //         };
-    //       default:
-    //         return state;
-    //     }
+      }
 
+      case 'UPDATE_ACTIVITY': {
+        return {
+          ...state,
+          ...action.payload
+        }
       }
       
-      case 'DELETE_CARD': {
-        const newTotalCards = state.totalCards--;
+      // case 'SUBMIT': {
+      //   // what information do we need? We need properties from state that start with the word new
+      //     // create an empty object named 'changed' to store our keys and values
+      //     const changed = {};
+      //     // iterate through the state
+      //     for (let i = 0; i < state.length; i++) {
+      //       // if the property at [i] starts with the string 'new'
+      //       if (state[i].slice(0,3) === 'new') {
+      //       // changed[propertyName] = state[propertyName]
+      //         changed[state[i]] = state[state[i]];
+      //         console.log(changed);
+      //       }
+      //     }
 
+        
+      //   // communicate with the server
+      //   const serializedData = JSON.stringify(changed);
+
+      //   const connection = mysql.createConnection({
+      //     host: 'your_database_host',
+      //     user: 'your_database_user',
+      //     password: 'your_database_password',
+      //     database: 'your_database_name'
+      //   });
+      //     // sending the 'changed' object
+      //       // if the communication is a success
+      //         // update our feed
+      //         // iterate 'changed' object changing each value to 'okay
+      //       // if the communication is a failure
+      //         // return our current state
+
+      //   return {
+      //     ...state
+      //     // spread 'changed'
+      //   }
+      // }
+      
+      case 'DELETE_CARD': {
+        const newTotalCards = state.totalCards - 1;
+      
         return {
             ...state,
             newTotalCards
         };
       }
-
-      case 'UPDATE_SLEEP': {
+        
+      case 'GET_FEED_ITEMS': {
+        
         return {
-            ...state,
-            newSleep: action.payload
+          ...state
         }
-      };
-      case 'UPDATE_EXERCISE': {
-        return {
-            ...state,
-            newExercise: actions.payload
-        }
-      };
-      case 'UPDATE_SOCIAL': {
-        return {
-            ...state,
-            newSocial: actions.payload
-        }
-      };
-      case 'UPDATE_FOOD': {
-        return {
-            ...state,
-            newExercise: actions.payload
-        }
-      };
-
-      case 'UPDATE_PRODUCTIVITY': {
-        return {
-            ...state,
-            newProductivity: action.payload
-        }
-      };
-
+      }
 
       default: {
         return state;
       }
     };
   };
-
-
-// const rootReducer = combineReducers({
-//  cards: cardsReducer,
-//  dropdown: dropdownReducer
-// });
-
 
 export default cardsReducer;
