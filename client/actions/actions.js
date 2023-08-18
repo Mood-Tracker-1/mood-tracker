@@ -17,27 +17,15 @@ export const deleteCardActionCreator = () => ({
 //   },
 // });
 
-export const updateSleep = (sleep) => ({
-  type: types.UPDATE_SLEEP,
-  payload: sleep
+export const updateActivityActionCreator = (obj) => ({
+  type: types.UPDATE_ACTIVITY,
+  payload: obj 
 });
 
-export const updateExercise = (exercise) => ({
-  type: types.UPDATE_EXERCISE,
-  payload: exercise
-});
+export const submitActionCreator = () => ({
+  type: types.SUBMIT
+})
 
-export const updateFood = (food) => ({
-    type: types.UPDATE_FOOD,
-    payload: food
-});
-
-export const updateSocial = (social) => ({
-  type: types.UPDATE_SOCIAL,
-  payload: social
-});
-
-export const updateProductivity = (productivity) => ({
-    type: types.UPDATE_PRODUCTIVITY,
-    payload: productivity
-  });
+export const getFeedItemsActionCreator = () => ({
+  type: types.GET_FEED_ITEMS
+})
